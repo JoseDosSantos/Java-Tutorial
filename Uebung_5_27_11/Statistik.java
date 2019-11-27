@@ -28,7 +28,7 @@ public class Statistik{
 		for (int col=0; col < matrix.length; col++){
 			if (matrix[col][1] > 0){				// nur wenn Anzahl nicht 0
 				if (!(col == 0)){					// für alle außer erster Zahl vorher Komma
-					System.out.print(',');
+					System.out.print(", ");
 				}
 				System.out.print(matrix[col][0]);
 			}
@@ -39,7 +39,7 @@ public class Statistik{
 		for (int col=0; col < matrix.length; col++){
 			if (matrix[col][1] > 0){				// nur wenn Anzahl nicht 0
 				if (!(col == 0)){					// für alle außer erster Zahl vorher Komma
-					System.out.print(',');
+					System.out.print(", ");
 				}
 				System.out.print(matrix[col][1]);
 			}
