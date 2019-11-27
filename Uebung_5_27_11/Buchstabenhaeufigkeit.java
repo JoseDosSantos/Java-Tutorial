@@ -1,4 +1,4 @@
-public class Caesar_neu{
+public class Buchstabenhaeufigkeit{
 	public static void main(String[] args) {
 		String z1 = args[0].toLowerCase();
 		String z2 = args[1].toLowerCase();
@@ -18,11 +18,13 @@ public class Caesar_neu{
 					current_count += 1;
 				}				
 			}
+
 			if(current_count>max_count){
 				max_count = current_count;
 				max_char = current_char;
 			}
 		}	
+
 		System.out.println(max_char);
 
 		for (int i=0; i<z2.length(); i++){
