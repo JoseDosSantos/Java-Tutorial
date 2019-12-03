@@ -1,40 +1,33 @@
-import java.util.Arrays;
-
 public class StringManipulation{
-	public static void main(String[] args) {
-		String test = "abCDEa";
-		char z = 'a';
-		String ins = "xyz";
-		System.out.println(reverse(test));
-		System.out.println(delete(test, z));
-		System.out.println(delete(test, 2, 4));
-		System.out.println(insert(test, 2, 'x'));
-		System.out.println(insert(test, 2, "xyz"));
-		System.out.println(swapUpperLowerCase(test));
-		System.out.println(Arrays.toString(toCharacterArray(test)));
-
-
+	public static void main(String[] args) {						
 	}
 
-	public static String reverse(String str){
-		int len = str.length();
-		String new_string = "";
-		for (int i = len - 1; i>=0; i--){
-			new_string += str.charAt(i);
+
+	public static String reverse(String str){						
+		int len = str.length();										
+		String new_string = "";	
+
+		for (int i = len - 1; i>=0; i--){							
+			new_string += str.charAt(i);							
 		}
+
 		return new_string;
 	}
+
 
 	public static String delete(String str, char zeichen){
 		int len = str.length();
-		String new_string = "";
+		String new_string = "";	
+
 		for (int i=0; i<len; i++){
 			if (str.charAt(i) != zeichen){
-				new_string = new_string + str.charAt(i);
+				new_string += str.charAt(i);
 			}
 		}
+
 		return new_string;
 	}
+
 
 	public static String delete(String str, int pos1, int pos2){
 		int len = str.length();
@@ -51,24 +44,28 @@ public class StringManipulation{
 		return new_string;
 	}
 
+
 	public static String insert(String str, int pos, char zeichen){
 		int len = str.length();
 		String new_string = "";
+
 		for (int i=0; i<pos; i++){
 			new_string += str.charAt(i);
 		}
+
 		new_string += zeichen;
 		for (int i=pos; i<len; i++){
 			new_string += str.charAt(i);
 		}
+
 		return new_string;
 	}
-
 
 
 	public static String insert(String str1, int pos, String str2){
 		int len = str1.length();
 		String new_string = "";
+
 		for (int i=0; i<pos; i++){
 			new_string += str1.charAt(i);
 		}
@@ -94,7 +91,7 @@ public class StringManipulation{
 			else if ((int) str.charAt(i) >=97 && (int) str.charAt(i) <=122){
 				new_string += (char) (str.charAt(i) - 32);
 			}
-			else {
+			else {																
 				new_string += str.charAt(i);
 			}
 		}
@@ -103,19 +100,14 @@ public class StringManipulation{
 	}
 
 
-
 	public static char[] toCharacterArray(String str){
 		int len = str.length();
-		char[] new_arr = new char[len];
+		char[] new_arr = new char[len];	
 
 		for (int i=0; i<len; i++){
 			new_arr[i] = str.charAt(i);
 		}
-
 		
 		return new_arr;
 	}
-
-
-
 }
