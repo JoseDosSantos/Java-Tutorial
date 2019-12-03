@@ -44,6 +44,5 @@ public class Statistik{
 				System.out.print(matrix[col][1]);
 			}
 		}
-
 	}
 }
