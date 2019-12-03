@@ -88,11 +88,14 @@ public class StringManipulation{
 		String new_string = "";
 
 		for (int i = 0; i<len; i++){
-			if (Character.isUpperCase(str.charAt(i))){
+			if ((int) str.charAt(i) >=65 && (int) str.charAt(i) <=90){
 				new_string += (char) (str.charAt(i) + 32);
 			}
-			if (Character.isLowerCase(str.charAt(i))){
+			else if ((int) str.charAt(i) >=97 && (int) str.charAt(i) <=122){
 				new_string += (char) (str.charAt(i) - 32);
+			}
+			else {
+				new_string += str.charAt(i);
 			}
 		}
 		
