@@ -89,10 +89,10 @@ public class StringManipulation{
 
 		for (int i = 0; i<len; i++){
 			if (Character.isUpperCase(str.charAt(i))){
-				new_string += Character.toLowerCase(str.charAt(i));
+				new_string += (char) (str.charAt(i) + 32);
 			}
 			if (Character.isLowerCase(str.charAt(i))){
-				new_string += Character.toUpperCase(str.charAt(i));
+				new_string += (char) (str.charAt(i) - 32);
 			}
 		}
 		
