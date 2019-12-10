@@ -4,7 +4,6 @@ import java.io.IOException;
 
 public class FileManagement{
 	public static void main(String[] args) throws IOException {
-		write_successful = writeToFile("asdasd");
 	}
 
 	public static String readFromFile(String path) throws IOException {

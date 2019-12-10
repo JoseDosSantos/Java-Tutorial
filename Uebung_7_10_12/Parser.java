@@ -2,8 +2,8 @@ public class Parser {
 	public static void main(String[] args) {
 		//String test = "-1/2;3/4;5/-2";
 		//parseToDouble(test);
-		double [] test_vals = {0.5, 1.3231, 1.0};
-		System.out.println(parseToString(test_vals));
+		//double [] test_vals = {-0.5, 1.3231, 1.0};
+		//System.out.println(parseToString(test_vals));
 	}
 
 	public static double[] parseToDouble(String brueche){
@@ -29,7 +29,7 @@ public class Parser {
 		if (b==0)
 			return a;
 		else
-			return groessterGemeinsamerTeiler(b, a%b);
+			return groessterGemeinsamerTeiler(b, Math.abs(a%b));
 	}
 
 
@@ -45,7 +45,9 @@ public class Parser {
 			
 
 			int ggt = groessterGemeinsamerTeiler(zaehler, nenner);
-			while(ggt > 1){
+			System.out.println(ggt);
+			while(ggt < 1){
+				System.out.println(ggt);
 				zaehler = zaehler / ggt;
 				nenner = nenner / ggt;
 				ggt = groessterGemeinsamerTeiler(zaehler, nenner);
