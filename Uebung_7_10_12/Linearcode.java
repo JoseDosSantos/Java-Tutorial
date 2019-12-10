@@ -1,7 +1,7 @@
 public class Linearcode{
 	public static void main(String[] args) {
-		String code = args[0];		
-		// String code = "| || |  ||||  |||| || || | ||| || ||";
+		// String code = args[0];		
+		String code = "|| ||||| ||||| ||||| ||||| ||||||  |";
 		int[] zahlen = new int[code.length()/6];
 
 		for (int i=0; i<code.length()/6; i++){
@@ -16,7 +16,12 @@ public class Linearcode{
 					}
 				
 			}
-			zahlen[i] = value;
+			if (value > 10){
+				zahlen[i] += 0;
+			}
+			else{
+				zahlen[i] = value;
+			}
 		}
 
 		int quersumme = 0;
