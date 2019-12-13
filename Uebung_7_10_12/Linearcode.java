@@ -9,10 +9,10 @@ Beispiel (ich nutze _ um die Leerzeichen besser sichtbar zu machen, in der Aufga
 
 
 01247
-|_|_| = 5
-_|||_ = 8 
-__||| = 1
-|||__ = 0
+|_|_|| = 5
+|_||_| = 8 
+__|||| = 1
+|||__| = 0
 
 Die letzte Zahl eines Strings ist dabei die Prüfziffer. Diese entsprich der Summe aller vorhergehenden Zahlen % 10, das heißt: addiert man alle Zahlen + die Prüfziffer, so ist die Summe durch 10 teilbar
 
@@ -24,8 +24,8 @@ ansonsten alle Zahlen außer der Prüfziffer in umgekehrter Reihenfolge
 
 public class Linearcode{											// Achtung: in Yapex heißt diese Klasse scheinbar nicht Linearcode sondern nur Test (entscheidend ist dass die so heißt wie die .java Datei)
 	public static void main(String[] args) {
-		// String code = args[0];		
-		String code = "|| ||||| ||||| ||||| ||||| ||||||  |";		// Nur zum Testen
+		String code = args[0];		
+		//String code = "|| ||||| ||||| ||||| ||||| ||||||  |";		// Nur zum Testen
 		int[] zahlen = new int[code.length()/6];					// Nur zum Test
 
 		for (int i=0; i<code.length()/6; i++){						// Idee hier: wir iterieren durch Länge / 6 (jede Zahl besteht aus 5 Zeichen + Trenn-|)
@@ -41,7 +41,7 @@ public class Linearcode{											// Achtung: in Yapex heißt diese Klasse sche
 					}
 				
 			}
-			if (value > 10){										// Wenn der Wert > 10 (kann eigentlich nur 11 sein) dann sollen wir nicht 11 sondern 0 addieren
+			if (value > 9){											// Wenn der Wert > 10 (kann eigentlich nur 11 sein) dann sollen wir nicht 11 sondern 0 addieren
 				zahlen[i] += 0;
 			}
 			else{

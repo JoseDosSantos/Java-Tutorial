@@ -22,11 +22,11 @@ import java.io.IOException;				// benötigte Imports - wichtig hier: Java muss i
 										// weil man die Dokumentation gelesen hat), daher muss in der Methodendefinition throws IOException angegeben werden
 
 public class FileManagement{
-	public static void main(String[] args){											// Hier ist throws IOException nicht nötig, da wir die besagten Klassen nicht verwenden
+	public static void main(String[] args) throws IOException{						// Hier ist throws IOException nicht nötig, da wir die besagten Klassen nicht verwenden
 	}
 
 	public static String readFromFile(String path) throws IOException {				// Hier schon
-		String content = new String(Files.readAllBytes(Paths.get(path)));			// Code von SO, Paths wandelt den String in ein Path-Objekt um, 
+		String content = new String(Files.readAllBytes(Paths.get(path)), "UTF-8");	// Code von SO, Paths wandelt den String in ein Path-Objekt um, 
 																					// Files.readAllBytes nimmt ein Paths-Objekt und liest die Datei an diesem Pfad ein
 																					// String liest Files in String aus. new da String eine Klasse ist.
 		return content;																// Rückgabe des eingelesenen Wertes (muss String sein, siehe Methodendeklaration Z. 28)

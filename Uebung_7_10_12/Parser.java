@@ -12,8 +12,8 @@ public class Parser {
 	public static void main(String[] args) {
 		//String test = "-1/2;3/4;5/-2";					// Die Werte in Main sind nur zum Testen während des Entwickelns
 		//parseToDouble(test);
-		//double [] test_vals = {-0.5, 1.3231, 1.0};
-		//System.out.println(parseToString(test_vals));
+		double [] test_vals = {-0.5, 1.3231, 1.0};
+		System.out.println(parseToString(test_vals));
 	}
 
 	public static double[] parseToDouble(String brueche){	// parseToDouble erhält als Parameter einen String und gibt ein double-Feld (also eine List mit doubles) zurück
@@ -21,7 +21,7 @@ public class Parser {
 		double[] feld = new double[geteilt.length];			// Initialisieren eines double-Felds, in das wir die berechneten Dezimalwerte speichern (die Anzahl der Teile von geteilt ist die Anzahl der Brüche also die Länge des Felds)
 
 		for (int i=0; i < geteilt.length; i++){				// jetzt iterieren wir durch das Feld welches die Brüche als String enthält
-			String bruch = geteilt[i];						// für einfachere Lesbarkeit wird hier der jeweilige String ausgelesen und in der Variable bruch gespeichert
+			String bruch = geteilt[i]; 						// für einfachere Lesbarkeit wird hier der jeweilige String ausgelesen und in der Variable bruch gespeichert
 			String[] zahlen = bruch.split("/");				// den String teiler wir erneut, diesmal am Schrägstrich. Die List zahlen enthält nun als erstes Element den Zähler und als zweites Element den Nenner
 			feld[i] = Double.parseDouble(zahlen[0]) / Double.parseDouble(zahlen[1]); // wir wandeln die beiden Elemente mit Double.parseDouble von Strings zu doubles um, Teilen diese und speichern das Ergebnis
 		}
@@ -89,12 +89,12 @@ public class Parser {
 				ggt = groessterGemeinsamerTeiler(zaehler, nenner);			// Berechne den neuen GGT
 			}
 
+
+			if (i > 0){	output += ";";}										// Wenn wir nicht im letzten Durchlauf sind dann hänge auch noch ein ; an
 			output += Integer.toString(zaehler);							// Jetzt müssen wir den fertigen Bruch an den Outputstring anhängen - mit Integer.toString werden Integers zu Strings umgewandelt
 			output += "/";													// Verknüfung erfolgt einfach mit +
-			output += Integer.toString(nenner);								// Remember: a += b ist dasselbe wie a = a + b
-			if (i != werte.length - 1){										// Wenn wir nicht im letzten Durchlauf sind dann hänge auch noch ein ; an
-				output += ";";
-			}
+			output += Integer.toString(nenner);								// Remember: a += b ist dasselbe wie a = a + b																		
+
 		}
 		return output;														// Rückgabe des fertigen Strings
 	}
