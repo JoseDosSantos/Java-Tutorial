@@ -24,8 +24,8 @@ ansonsten alle Zahlen außer der Prüfziffer in umgekehrter Reihenfolge
 
 public class Linearcode{											// Achtung: in Yapex heißt diese Klasse scheinbar nicht Linearcode sondern nur Test (entscheidend ist dass die so heißt wie die .java Datei)
 	public static void main(String[] args) {
-		String code = args[0];		
-		//String code = "|| ||||| ||||| ||||| ||||| ||||||  |";		// Nur zum Testen
+		//String code = args[0];		
+		String code = "|| ||||| ||||| ||||| ||||| ||||||  |";		// Nur zum Testen
 		int[] zahlen = new int[code.length()/6];					// Nur zum Test
 
 		for (int i=0; i<code.length()/6; i++){						// Idee hier: wir iterieren durch Länge / 6 (jede Zahl besteht aus 5 Zeichen + Trenn-|)
@@ -57,9 +57,11 @@ public class Linearcode{											// Achtung: in Yapex heißt diese Klasse sche
 		if (quersumme%10 != 0){										// Wenn die Quersumme nicht durch 10 teilbar ist (also der Rest > 0) dann Fehlermeldung ausgeben
 			System.out.println("Falscher Code");
 		}
+
 		else {														// Ansonsten rückwärts die Zahlen ohne Prüfziffer in einer Zeile (print statt println) ausgeben
 			for (int i=zahlen.length-2; i>=0; i--){					// Die Schleife beginnt bei länge-2, da länge-1 der Index des letzten Elements (der Prüfziffer) ist und wir das ja nicht mit ausgeben wollen
-				System.out.print(zahlen[i]);						// Vom Vorletzen angefangen gehen wir rückwärts (i--) und geben die Zahlen aus
+				System.out.print(zahlen[i]);
+			}														// Vom Vorletzen angefangen gehen wir rückwärts (i--) und geben die Zahlen aus
 		}
 	}
 
