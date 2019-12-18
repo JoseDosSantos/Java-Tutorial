@@ -69,10 +69,12 @@ public class TestWunsch{
 
 	public static void gibWuenscheAus(Wunschliste liste){
 		for (int i = 0; i<liste.length; i++){
-			System.out.print(liste.wuensche[i].beschreibung);
-			System.out.print(" (");
-			System.out.print(liste.wuensche[i].prioritaet);
-			System.out.println(")");
+			if (liste.wuensche[i] != null){
+				System.out.print(liste.wuensche[i].beschreibung);
+				System.out.print(" (");
+				System.out.print(liste.wuensche[i].prioritaet);
+				System.out.println(")");
+			}
 		}
 	}
 }
