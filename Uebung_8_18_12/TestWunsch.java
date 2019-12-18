@@ -2,17 +2,18 @@ public class TestWunsch{
 	public static void main(String[] args) {
 		/*
 		Wunschliste liste = erzeugeLeereWunschliste(5);
-		neuerWunsch(liste, "test1", 0);
-		neuerWunsch(liste, "test2", 3);
-		neuerWunsch(liste, "test3", 2);
-		neuerWunsch(liste, "test4", 1);
-		neuerWunsch(liste, "test5", 9);
-		gibWuenscheAus(liste);
+		neuerWunsch(liste, "a", 10);
+		neuerWunsch(liste, "b", 15);
+		neuerWunsch(liste, "c", 4);
+		neuerWunsch(liste, "d", 12);
+		neuerWunsch(liste, "g", 13);
+		gibWuenscheAus(liste);		
 
-		neuerWunsch(liste, "test6", 4);
-		System.out.println(".");
+		neuerWunsch(liste, "h", 17);
 		gibWuenscheAus(liste);
-		*/
+		neuerWunsch(liste, "i", 7);
+		gibWuenscheAus(liste);
+		*/		
 	}
 
 	public static Wunschliste erzeugeLeereWunschliste(int anzahl){
@@ -46,14 +47,22 @@ public class TestWunsch{
 		}
 
 		else {
-			for (int i=0; i<liste.length; i++){
-				if (liste.wuensche[i].prioritaet>=neu.prioritaet){
-					for (int j=0; j<i-1;j++){
-						liste.wuensche[j] = liste.wuensche[j+1];
+			if (neu.prioritaet > liste.wuensche[0].prioritaet){
+				for (int i=0; i<liste.length; i++){
+					if (liste.wuensche[i].prioritaet>=neu.prioritaet){
+						for (int j=0; j<i-1;j++){
+							liste.wuensche[j] = liste.wuensche[j+1];
+						}
+						liste.wuensche[i-1] = neu;
+						break;
 					}
-					liste.wuensche[i-1] = neu;
-					break;
-				}	
+					if (i == liste.length-1){
+						for (int j=0; j<i;j++){
+							liste.wuensche[j] = liste.wuensche[j+1];
+						}
+						liste.wuensche[i] = neu;
+					}
+				}
 			}
 		}
 	}
