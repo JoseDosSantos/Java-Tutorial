@@ -25,16 +25,18 @@ public class Woerterraten {
 					System.out.println(zielwort);
 					break;
 				}
+				else{
+					System.out.println("Falsches Wort");
+				}
+
 			}
 			else{
-				if (zielwort.contains(input)){
-					if (gefundeneBuchstaben.contains(input)){
-						System.out.println("Buchstabe kam bereits vor");
-						continue;
-					}
-					else {
-						gefundeneBuchstaben += input;
-					}
+				if (gefundeneBuchstaben.contains(input)){
+					System.out.println("Buchstabe kam bereits vor");
+					versuche -=1;
+				}
+				else {
+					gefundeneBuchstaben += input;
 				}
 			}
 
@@ -63,8 +65,6 @@ public class Woerterraten {
 			else {
 				System.out.println(output);
 			}
-			
-
 		} while (versuche < maxVersuche);
 	}
 }
