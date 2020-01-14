@@ -15,6 +15,7 @@ public class Bruch{
 		kuerze();
 	}
 
+
 	public String toString(){
 		String neu = "";
 		neu += Integer.toString(zaehler);
@@ -24,8 +25,8 @@ public class Bruch{
 	}
 
 	public Bruch addiere(Bruch b){
-		int nenner_neu = zaehler * b.zaehler;
-		int zaehler_neu = zaehler * b.nenner + b.zahler * nenner;
+		int nenner_neu = nenner * b.nenner;
+		int zaehler_neu = zaehler * b.nenner + b.zaehler * nenner;
 		Bruch neu = new Bruch(zaehler_neu, nenner_neu);
 		return neu;
 	}
