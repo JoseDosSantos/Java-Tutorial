@@ -1,0 +1,88 @@
+import java.io.*;
+import java.lang.reflect.*;
+
+public class TestBruch {
+    public static void main(String args[]) throws IOException {
+        Bruch a, b;
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        int zaehler, nenner;
+        if(args.length == 2) {
+            a = new Bruch(args[0]);System.out.println(a);
+            b = new Bruch(args[1]);System.out.println(b);
+        }
+        else if(args.length == 0) {
+            zaehler = Integer.parseInt(in.readLine());
+            nenner = Integer.parseInt(in.readLine());
+            a = new Bruch(zaehler, nenner);
+            System.out.println(a);
+            zaehler = Integer.parseInt(in.readLine());
+            nenner = Integer.parseInt(in.readLine());
+            b = new Bruch(zaehler, nenner);
+            System.out.println(b);
+        }
+        else {
+            try { codeVerification(Bruch.class); }
+            catch(SecurityException e) {
+                e.printStackTrace(System.out);
+            }
+            return;
+        }
+        Bruch c;
+        switch(in.readLine().charAt(0)) {
+//            case '*':
+//                c = a.multipliziere(b);
+//                System.out.println(a+"\n"+b+"\n"+c);
+//                break;
+            case '+':
+                c = a.addiere(b);
+                System.out.println(a+"\n"+b+"\n"+c);
+                break;
+            default:
+                System.out.println("not supported");
+       }
+    }
+    private static void codeVerification(Class<?> cls) throws 
+    SecurityException {
+        for(Field f : cls.getDeclaredFields()) {
+            if(Modifier.isStatic(f.getModifiers()))
+                System.out.println("Es werde keine Klassenvariablen benötigt, aber die folgende gefunden: " + f.getName());
+            if(!Modifier.isPrivate(f.getModifiers())) {
+                System.out.println("Alle Attribute dürfen von außerhalb der Klasse nicht zugreifbar sein, das folgende Attribut ist aber von außen zugreifbar: " + f.getName());
+            }
+        }
+        Method kuerze = null;
+        for(Method m : cls.getDeclaredMethods()) {
+            switch(m.getName()) {
+                case "toString":
+                case "addiere":
+                case "multipliziere":
+                    if(!Modifier.isPublic(m.getModifiers()))
+                        System.out.println(m.getName() + " ist nicht public!");
+                    break;
+                case "kuerze":
+                    kuerze = m;
+                default:
+                    if(!Modifier.isPrivate(m.getModifiers()))
+                        System.out.println(m.getName() + " ist nicht private!");
+            }
+            if(Modifier.isStatic(m.getModifiers()))
+                System.out.println("Es werden keine static-Methoden benötigt aber die folgende gefunden: " + m.getName());
+        }
+        if(kuerze == null) {
+            System.out.println("Es fehlt eine von außen nicht zugreifbare Methode kuerze!");
+        }
+        else {
+             if(!kuerze.getReturnType().equals(Void.TYPE))
+                System.out.println("Für die Verwendung der kuerze-Methode wird kein Rückgabetyp benötigt!");
+            if(kuerze.getParameterCount()!=0) {
+                System.out.println("Die kuerze-Methode benötigt keine Parameter, da sie direkt auf die Attribute zugreifen soll.");
+            }
+        }
+        
+        for(Constructor<?> constr : cls.getDeclaredConstructors()) {
+
+            if(!Modifier.isPublic(constr.getModifiers()))
+                System.out.println("In dieser Aufgabe sollten alle Konstruktoren von außen zugreifbar sein, was auf " + constr.toGenericString() + " nicht zutrifft.");
+        }
+    }
+}

@@ -9,7 +9,7 @@ public class Ackermann{
 		if (n == 0){
 			return m + 1;
 		}
-		else if (m == 0){
+		else if (n > 0 && m == 0){
 			return ack(n-1, 1);
 		}
 		else{
