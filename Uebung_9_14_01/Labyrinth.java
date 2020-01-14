@@ -11,7 +11,7 @@ public class Labyrinth{
 
 
 	public Labyrinth(String name) throws IOException{
-		String content = new String(Files.readAllBytes(Paths.get("sample.txt")));
+		String content = new String(Files.readAllBytes(Paths.get(name)));
 		String[] rows = content.split("\n");
 		x_dim = rows[0].trim().length() - 1;
 		y_dim = rows.length - 1;
