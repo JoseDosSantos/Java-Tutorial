@@ -16,7 +16,7 @@ public class Labyrinth{
 
 		x_dim = Integer.parseInt(rows[1]);
 		y_dim = Integer.parseInt(rows[0]);
-		matrix = new boolean[x_dim + 1][y_dim + 1];
+		matrix = new boolean[x_dim][y_dim];
 
 		for (int y=0; y < y_dim; y++){
 			for (int x=0; x < x_dim; x++){
@@ -51,7 +51,7 @@ public class Labyrinth{
 				}
 				else {return false;}
 			case 'r':
-				if (x_pos < x_dim){
+				if (x_pos < x_dim-1){
 					move = matrix[x_pos + 1][y_pos];
 					if (move){
 						x_pos += 1;
@@ -69,7 +69,7 @@ public class Labyrinth{
 				}
 				else {return false;}
 			case 'u':
-				if (y_pos < y_dim){
+				if (y_pos < y_dim-1){
 					move = matrix[x_pos][y_pos + 1];
 					if (move){
 						y_pos += 1;
