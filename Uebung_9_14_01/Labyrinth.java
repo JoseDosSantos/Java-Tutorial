@@ -14,13 +14,13 @@ public class Labyrinth{
 		String content = new String(Files.readAllBytes(Paths.get(name)));
 		String[] rows = content.split("\n");
 
-		x_dim = rows[1];
-		y_dim = rows[0];
+		x_dim = Integer.parseInt(rows[1]);
+		y_dim = Integer.parseInt(rows[0]);
 		matrix = new boolean[x_dim + 1][y_dim + 1];
 
-		for (int y = 2; y<= y_dim + 2; y++){
-			for (int x = 0; x<= x_dim; x++){
-				String val = rows[y].trim().split("")[x];
+		for (int y=0; y < y_dim; y++){
+			for (int x=0; x < x_dim; x++){
+				String val = rows[y + 2].trim().split("")[x];
 				if (val.equals("#")){
 					matrix[x][y] = false;
 				}
@@ -39,27 +39,46 @@ public class Labyrinth{
 	}
 
 	public boolean bewegeDich(char z){
+		boolean move;
 		switch (z){
 			case 'l':
 				if (x_pos > 0){
-					return matrix[x_pos - 1][y_pos];
+					move = matrix[x_pos - 1][y_pos];
+					if (move){
+						x_pos += -1;
+					}
+					return move;
 				}
 				else {return false;}
 			case 'r':
 				if (x_pos < x_dim){
-					return matrix[x_pos + 1][y_pos];
+					move = matrix[x_pos + 1][y_pos];
+					if (move){
+						x_pos += 1;
+					}
+					return move;
 				}
 				else {return false;}
 			case 'o':
 				if (y_pos > 0){
-					return matrix[x_pos][y_pos - 1];
+					move = matrix[x_pos][y_pos - 1];
+					if (move){
+						y_pos += -1;
+					}
+					return move;
 				}
 				else {return false;}
 			case 'u':
 				if (y_pos < y_dim){
-					return matrix[x_pos][y_pos + 1];
+					move = matrix[x_pos][y_pos + 1];
+					if (move){
+						y_pos += 1;
+					}
+					return move;
 				}
-				else {return false;}
+				else {
+					return false;
+				}
 			default:
 				return false;
 		}
@@ -68,8 +87,8 @@ public class Labyrinth{
 	@Override
 	public String toString(){
 		String output = "";
-		for(int y=0; y<=y_dim; y++){
-			for(int x=0; x<=x_pos; x++){
+		for(int y=0; y < y_dim; y++){
+			for(int x=0; x < x_dim; x++){
 				if (x==x_pos && y==y_pos){
 					output+="x";
 				}
