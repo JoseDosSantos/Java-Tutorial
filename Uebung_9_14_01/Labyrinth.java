@@ -13,11 +13,12 @@ public class Labyrinth{
 	public Labyrinth(String name) throws IOException{
 		String content = new String(Files.readAllBytes(Paths.get(name)));
 		String[] rows = content.split("\n");
-		x_dim = rows[0].trim().length() - 1;
-		y_dim = rows.length - 1;
+
+		x_dim = rows[1];
+		y_dim = rows[0];
 		matrix = new boolean[x_dim + 1][y_dim + 1];
 
-		for (int y = 0; y<= y_dim; y++){
+		for (int y = 2; y<= y_dim + 2; y++){
 			for (int x = 0; x<= x_dim; x++){
 				String val = rows[y].trim().split("")[x];
 				if (val.equals("#")){
@@ -64,6 +65,7 @@ public class Labyrinth{
 		}
 	}
 
+	@Override
 	public String toString(){
 		String output = "";
 		for(int y=0; y<=y_dim; y++){
