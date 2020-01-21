@@ -1,9 +1,9 @@
 public class Gegenstand{
-	private String name;
+	private String name;						
 	private double gewicht;
 
 	public Gegenstand(String n, double g){
-		name = n;
+		name = n;								
 		if (g<0){
 			gewicht = 0;
 		}
@@ -19,7 +19,7 @@ public class Gegenstand{
 	}
 
 	public String toString(){
-		String output = name + " (" + Double.toString(gewicht) + ")";
+		output = name + " (" + Double.toString(gewicht) + ")";
 		return output;
 	}
 }

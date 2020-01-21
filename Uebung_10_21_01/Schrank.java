@@ -21,6 +21,7 @@ public class Schrank{
 		gegenstaende[anzahlCurrent] = objekt;
 		anzahlCurrent += 1;
 		gewichtCurrent += objekt.getGewicht();
+		return 'e';
 	}
 
 	public void print(){
@@ -43,6 +44,7 @@ public class Schrank{
 				return true;
 			}
 		}
+		return false;
 	}
 
 
