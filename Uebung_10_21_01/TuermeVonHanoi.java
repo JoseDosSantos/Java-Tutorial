@@ -18,7 +18,7 @@ public class TuermeVonHanoi{
             
             umstapeln(anzahl, turm1, turm2, turm3);
             System.out.print(anzahl);
-            System.out.print(" Scheiben; ");
+            System.out.print(" Scheiben, ");
             System.out.print(verschiebungen);
             System.out.println(" Verschiebungen");
 
@@ -33,7 +33,7 @@ public class TuermeVonHanoi{
                   output += "\n";
                   turm3.pop();
             }
-            System.out.println(output);
+            System.out.print(output);
       }
 
       public static void umstapeln(int i, HanoiTurm a, HanoiTurm b, HanoiTurm c){

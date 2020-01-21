@@ -56,7 +56,7 @@ public class HanoiTurm
 
       public void push(String scheibe){
             if (position + 1 == maxSize()){
-                  System.out.println("maximale anzahl an Scheiben erreicht");
+                  System.out.println("maximale Anzahl an Scheiben erreicht");
             }
             else if (position!=-1){
                   if (values[position].length() < scheibe.length()){
