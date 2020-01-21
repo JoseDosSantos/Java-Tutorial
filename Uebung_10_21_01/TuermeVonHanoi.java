@@ -17,12 +17,15 @@ public class TuermeVonHanoi{
             }
             
             umstapeln(anzahl, turm1, turm2, turm3);
-            System.out.println(verschiebungen);
+            System.out.print(anzahl);
+            System.out.print(" Scheiben; ");
+            System.out.print(verschiebungen);
+            System.out.println(" Verschiebungen");
 
             String output = "";
-            for (int i=anzahl-1; i>=0; i--){
-                  String scheibe = turm3.top();
-                  int anzLeer = i;
+            for (int i=anzahl; i>0; i--){
+                  String scheibe = turm3.top(); 
+                  int anzLeer = i-1;              
                   for (int j=0; j<anzLeer;j++){
                         output+=" ";
                   }
