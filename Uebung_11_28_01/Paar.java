@@ -1,7 +1,5 @@
 public class Paar<T> {
     private T wert1, wert2;
-    // Methoden
-    // ...
 
     public Paar(T w1, T w2){
     	wert1 = w1;
@@ -31,9 +29,6 @@ public class Paar<T> {
             else{
             	return false;
             }
-            // nun koennen Sie auf die Attribute des uebergebenen Objektes
-            // ueber p zugreifen
-            // ...
         }
         return false;
     }
