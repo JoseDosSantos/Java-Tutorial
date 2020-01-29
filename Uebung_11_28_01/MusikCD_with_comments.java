@@ -1,3 +1,7 @@
+/*
+siehe FilmDVD, die Klasse ist quasi gleich, einziger unterschied ist künstler statt genre
+*/
+
 public class MusikCD extends Medium{
 	private String kuenstler;
 

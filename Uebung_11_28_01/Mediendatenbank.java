@@ -12,14 +12,14 @@ public class Mediendatenbank {
         return db[pos];
     }
 
-    public int fuegeNeuesMediumHinzu(Medium m){
+    public boolean fuegeNeuesMediumHinzu(Medium m){
         if (anzahlMedien < db.length){
             db[anzahlMedien] = m;
             anzahlMedien += 1;
-            return anzahlMedien - 1;
+            return true;
         }
         else{
-            return -1;
+            return false;
         }
     }
 
@@ -29,8 +29,6 @@ public class Mediendatenbank {
                 return i;
             }
         }
-        else {
-            return -1;
-        }
+        return -1;
     }
 }

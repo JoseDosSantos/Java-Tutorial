@@ -1,3 +1,6 @@
+/* 
+nur die Test-Datei für Aufgabe 1 von Japex, könnt ihr ignorieren
+*/
 import java.io.*;
 public class Test {
     public static void main(String[] args) throws IOException {

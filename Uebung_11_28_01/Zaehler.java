@@ -18,7 +18,7 @@ public class Zaehler<T>{
 	public String toString(){
 		String output = "";
 		for (int i=0; i<elemente.size(); i++){
-			output += elemente.get(i).toString() + " (" + Integer.toString(count.get(i)) + " mal)\n";
+			output += elemente.get(i).toString() + " (" + count.get(i).toString() + " mal)\n";
 		}
 		return output;
 	}
